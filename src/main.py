@@ -41,9 +41,10 @@ def openfile():
     harData = HarParser.from_file(fileName) 
     pageSizeText.set(0)
     pageLoadTimeText.set(0)
-    tree.delete(*tree.get_children())
-    brwsrNmText.set(harData.browser['name'])
-    brwsrVerText.set(harData.browser['version'])  
+    tree.delete(*tree.get_children()) 
+    
+    brwsrNmText.set(harData.creator['name'])
+    brwsrVerText.set(harData.creator['version'])  
     for page in harData.pages:
         pageLsUrls.append(page.url)
         pageLsPageId.append(page.page_id)
@@ -98,7 +99,7 @@ def getTabContent(event):
         cookieBoxtv.insert(reqCookiesId,"end", values=(item['name'],item['value']))
     
     
-    
+   
 root = Tk()
 root.title("Har Parser")
 #root.minsize(500,400)
